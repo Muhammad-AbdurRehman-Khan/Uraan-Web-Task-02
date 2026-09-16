@@ -1,0 +1,622 @@
+/* ==========================================================================
+   Catchub Landing Page Stylesheet
+   Task 02 - Pixel-Accurate & Semantic Conversion of design.jpg
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   CSS Variables & Design Tokens
+   -------------------------------------------------------------------------- */
+:root {
+    --font-primary: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    
+    /* Brand & Accent Colors */
+    --color-primary: #F05336;
+    --color-primary-dark: #D84227;
+    --color-accent-blue: #1C90F3;
+    --color-accent-blue-hover: #0B73CE;
+    
+    /* Neutrals */
+    --color-text-main: #252525;
+    --color-text-body: #666666;
+    --color-text-muted: #7E7E7E;
+    --color-bg-page: #FFFFFF;
+    --color-bg-soft: #F8F9FA;
+    
+    /* Layout */
+    --container-max-width: 1200px;
+    --transition-standard: all 0.28s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* --------------------------------------------------------------------------
+   Reset & Base Styles
+   -------------------------------------------------------------------------- */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    outline: none;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+    background-color: var(--color-bg-page);
+    overscroll-behavior: none;
+}
+
+body {
+    font-family: var(--font-primary);
+    background-color: var(--color-bg-page);
+    color: var(--color-text-main);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+    overscroll-behavior: none;
+    position: relative;
+    min-height: 100vh;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    user-select: none;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* --------------------------------------------------------------------------
+   Container
+   -------------------------------------------------------------------------- */
+.container {
+    width: 100%;
+    max-width: var(--container-max-width);
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+/* --------------------------------------------------------------------------
+   Background Ambient Curves (Matching Reference Mockup Waves)
+   -------------------------------------------------------------------------- */
+.bg-waves {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.wave {
+    position: absolute;
+    width: 180%;
+    left: -40%;
+    height: 550px;
+    border-radius: 50%;
+    background: radial-gradient(ellipse at center, rgba(244, 244, 246, 0.7) 0%, rgba(255, 255, 255, 0) 70%);
+    filter: blur(30px);
+}
+
+.wave-top {
+    top: 4%;
+    right: -25%;
+    transform: rotate(-10deg);
+}
+
+.wave-middle-1 {
+    top: 28%;
+    left: -25%;
+    transform: rotate(7deg);
+}
+
+.wave-middle-2 {
+    top: 53%;
+    right: -20%;
+    transform: rotate(-8deg);
+}
+
+.wave-bottom {
+    top: 78%;
+    left: -20%;
+    transform: rotate(5deg);
+}
+
+/* --------------------------------------------------------------------------
+   Header / Hero Section
+   -------------------------------------------------------------------------- */
+.hero-section {
+    position: relative;
+    z-index: 1;
+    padding-top: 70px;
+    padding-bottom: 70px;
+}
+
+.hero-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+.hero-content {
+    flex: 1;
+    max-width: 540px;
+}
+
+.brand-logo {
+    margin-bottom: 32px;
+}
+
+.logo-img {
+    width: 275px;
+    height: auto;
+    display: block;
+}
+
+.hero-title {
+    font-size: 25px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    color: var(--color-text-main);
+    line-height: 1.35;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+}
+
+.hero-subtitle {
+    font-size: 19px;
+    font-weight: 400;
+    color: var(--color-text-muted);
+    margin-bottom: 34px;
+    letter-spacing: 0.1px;
+}
+
+/* --------------------------------------------------------------------------
+   Store Badges
+   -------------------------------------------------------------------------- */
+.store-buttons {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.store-btn {
+    display: inline-block;
+    border-radius: 12px;
+    overflow: hidden;
+    line-height: 0;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+    transition: var(--transition-standard);
+}
+
+.store-btn img {
+    height: 52px;
+    width: auto;
+    display: block;
+    border-radius: 12px;
+}
+
+.store-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.16);
+}
+
+.store-btn:active {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+}
+
+.hero-visual {
+    flex: 1.25;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.hero-phones-img {
+    width: 100%;
+    max-width: 680px;
+    height: auto;
+    filter: drop-shadow(0 18px 36px rgba(0, 0, 0, 0.07));
+    animation: fadeInFloat 1s ease-out;
+}
+
+/* --------------------------------------------------------------------------
+   Feature Sections
+   -------------------------------------------------------------------------- */
+.feature-section {
+    position: relative;
+    z-index: 1;
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
+.feature-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 60px;
+}
+
+.feature-content {
+    flex: 1;
+    max-width: 500px;
+}
+
+.feature-title {
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: 3.5px;
+    color: var(--color-text-main);
+    line-height: 1.3;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.feature-desc {
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 1.65;
+    color: var(--color-text-body);
+    letter-spacing: 0.1px;
+}
+
+.feature-visual {
+    flex: 1.25;
+    display: flex;
+    align-items: center;
+}
+
+/* Section 1: Channels (Phones Left, Text Right) */
+.channels-visual {
+    justify-content: flex-start;
+}
+
+.sec-screens-img {
+    max-width: 560px;
+    width: 100%;
+    height: auto;
+    filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.08));
+    transition: transform 0.4s ease;
+}
+
+.sec-screens-img:hover {
+    transform: scale(1.02);
+}
+
+.channels-content {
+    padding-left: 20px;
+}
+
+/* Section 2: Messages (Text Left, Phones Right) */
+.messages-visual {
+    justify-content: flex-end;
+}
+
+.thhh-screens-img {
+    max-width: 520px;
+    width: 100%;
+    height: auto;
+    filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.08));
+    transition: transform 0.4s ease;
+}
+
+.thhh-screens-img:hover {
+    transform: scale(1.02);
+}
+
+/* Section 3: In Future (Phones Left, Categories + Text Right) */
+.future-visual {
+    justify-content: flex-start;
+}
+
+.for-screens-img {
+    max-width: 550px;
+    width: 100%;
+    height: auto;
+    filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.08));
+    transition: transform 0.4s ease;
+}
+
+.for-screens-img:hover {
+    transform: scale(1.02);
+}
+
+.future-content {
+    display: flex;
+    flex-direction: column;
+    padding-left: 20px;
+}
+
+.future-categories {
+    margin-bottom: 48px;
+}
+
+.categories-img {
+    max-width: 480px;
+    width: 100%;
+    height: auto;
+    filter: contrast(1.1) brightness(0.96);
+}
+
+/* --------------------------------------------------------------------------
+   Footer / Download Section
+   -------------------------------------------------------------------------- */
+.site-footer {
+    position: relative;
+    z-index: 1;
+    padding-top: 90px;
+    padding-bottom: 70px;
+    text-align: center;
+}
+
+.footer-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.download-heading {
+    font-size: 19px;
+    font-weight: 400;
+    color: #4a4a4a;
+    margin-bottom: 24px;
+    letter-spacing: 0.2px;
+}
+
+.footer-buttons {
+    justify-content: center;
+    margin-bottom: 38px;
+}
+
+.contact-text {
+    font-size: 16px;
+    font-weight: 400;
+    color: #555555;
+    margin-bottom: 46px;
+}
+
+.contact-link {
+    color: var(--color-accent-blue);
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-decoration: none;
+    transition: var(--transition-standard);
+    display: inline-block;
+    border-bottom: 1.5px solid transparent;
+}
+
+.contact-link:hover {
+    color: var(--color-accent-blue-hover);
+    border-bottom-color: var(--color-accent-blue-hover);
+}
+
+.footer-brand {
+    margin-top: 8px;
+}
+
+.peratude-logo {
+    width: 86px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    transition: var(--transition-standard);
+}
+
+.peratude-logo:hover {
+    transform: scale(1.08);
+}
+
+/* --------------------------------------------------------------------------
+   Animations
+   -------------------------------------------------------------------------- */
+@keyframes fadeInFloat {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* --------------------------------------------------------------------------
+   Responsive Media Queries
+   -------------------------------------------------------------------------- */
+
+/* Large Tablets / Laptops */
+@media (max-width: 1080px) {
+    .container {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+
+    .hero-container,
+    .feature-container {
+        gap: 36px;
+    }
+
+    .hero-title {
+        font-size: 23px;
+        letter-spacing: 1.8px;
+    }
+
+    .hero-subtitle {
+        font-size: 18px;
+    }
+
+    .feature-title {
+        font-size: 24px;
+        letter-spacing: 2.8px;
+    }
+
+    .feature-desc {
+        font-size: 18px;
+    }
+
+    .channels-content,
+    .future-content {
+        padding-left: 0;
+    }
+}
+
+/* Tablets (Stacked Layout) */
+@media (max-width: 860px) {
+    .hero-section {
+        padding-top: 40px;
+        padding-bottom: 50px;
+    }
+
+    .hero-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 40px;
+    }
+
+    .hero-content {
+        max-width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .brand-logo {
+        margin-bottom: 24px;
+    }
+
+    .hero-subtitle {
+        margin-bottom: 28px;
+    }
+
+    .store-buttons {
+        justify-content: center;
+    }
+
+    .hero-visual {
+        justify-content: center;
+        width: 100%;
+    }
+
+    .hero-phones-img {
+        max-width: 520px;
+    }
+
+    /* Features Stacked */
+    .feature-section {
+        padding-top: 60px;
+        padding-bottom: 60px;
+    }
+
+    .feature-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 36px;
+    }
+
+    .feature-container.reverse {
+        flex-direction: column-reverse;
+    }
+
+    .feature-content {
+        max-width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .feature-visual {
+        justify-content: center;
+        width: 100%;
+    }
+
+    .sec-screens-img,
+    .thhh-screens-img,
+    .for-screens-img {
+        max-width: 440px;
+    }
+
+    .future-categories {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 30px;
+    }
+
+    .categories-img {
+        max-width: 420px;
+    }
+}
+
+/* Mobile Devices */
+@media (max-width: 540px) {
+    .container {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .brand-logo .logo-img {
+        width: 220px;
+    }
+
+    .hero-title {
+        font-size: 19px;
+        letter-spacing: 1.2px;
+    }
+
+    .hero-subtitle {
+        font-size: 16px;
+        margin-bottom: 24px;
+    }
+
+    .store-btn img {
+        height: 46px;
+    }
+
+    .hero-phones-img {
+        max-width: 100%;
+    }
+
+    .feature-title {
+        font-size: 21px;
+        letter-spacing: 2px;
+        margin-bottom: 12px;
+    }
+
+    .feature-desc {
+        font-size: 16px;
+        line-height: 1.6;
+    }
+
+    .sec-screens-img,
+    .thhh-screens-img,
+    .for-screens-img {
+        max-width: 100%;
+    }
+
+    .categories-img {
+        max-width: 100%;
+    }
+
+    .download-heading {
+        font-size: 17px;
+    }
+
+    .contact-text {
+        font-size: 14px;
+    }
+
+    .site-footer {
+        padding-top: 60px;
+        padding-bottom: 40px;
+    }
+}
