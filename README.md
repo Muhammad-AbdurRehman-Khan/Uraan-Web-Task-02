@@ -1,7 +1,7 @@
 # Urraan Online Training - Task 02: Catchub Landing Page UI Conversion
 
 ## 🔗 Live Demo
-Open `index.html` in your browser to view the page.
+Open `https://muhammad-abdurrehman-khan.github.io/Uraan-Web-Task-02` in your browser to view the page.
 
 ---
 
